@@ -1,6 +1,8 @@
 const express = require('express');
 const morgan = require('morgan');
-const campsiteRouter = require('./routes/campsiteRouter'); 
+const campsiteRouter = require('./routes/campsiteRouter');
+const promotionRouter = require('./routes/promotionRouter');
+const partnerRouter = require('./routes/partnerRoute');
 
 
 const hostname = 'localhost';
@@ -8,12 +10,12 @@ const port = 3000;
 
 const app = express();
 app.use(morgan('dev'));
-app.use(express.json()); 
+app.use(express.json());
 // we can now be using data in javascript
 
 app.use('/campsites', campsiteRouter);
-
-
+app.use('/promotions', promotionRouter);
+app.use('/partners', partnerRouter);
 
 
 
